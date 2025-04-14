@@ -5,3 +5,7 @@ PAProjectZombieCity/Logs/
 PAProjectZombieCity/Temp/
 PAProjectZombieCity/UserSettings/
 *.csproj
+SLProjectExcelExporter/Library/
+SLProjectExcelExporter/Temp/
+SLProjectExcelExporter/UserSettings/
+SLProjectExcelExporter/Logs/
