@@ -1,0 +1,7 @@
+*.vsconfig
+PAProjectZombieCity/.editorconfig
+PAProjectZombieCity/Library/
+PAProjectZombieCity/Logs/
+PAProjectZombieCity/Temp/
+PAProjectZombieCity/UserSettings/
+*.csproj
