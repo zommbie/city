@@ -2,23 +2,23 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UIUnder
   - Water
   - UI
+  - UIMesh
+  - UIOver
   - 
+  - SpriteUnder
+  - Sprite
+  - SpriteOver
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ColliderProjectile
   - 
   - 
   - 
@@ -41,3 +41,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SpriteUnder
+    uniqueID: 3409113625
+    locked: 0
+  - name: Sprite
+    uniqueID: 874513921
+    locked: 0
+  - name: SpriteOver
+    uniqueID: 1115571909
+    locked: 0
+  - name: UIUnder
+    uniqueID: 491111603
+    locked: 0
+  - name: UI
+    uniqueID: 3386208053
+    locked: 0
+  - name: UIMesh
+    uniqueID: 1441633737
+    locked: 0
+  - name: UIOver
+    uniqueID: 1117403815
+    locked: 0
+  m_RenderingLayers:
+  - Default
