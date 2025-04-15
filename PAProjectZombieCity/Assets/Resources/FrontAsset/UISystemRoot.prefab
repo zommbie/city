@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7032128115859776690}
   - component: {fileID: 3920165708817549802}
   - component: {fileID: 7956023557361827406}
+  - component: {fileID: 5962441081963884955}
   m_Layer: 5
   m_Name: UICanvasRoot
   m_TagString: Untagged
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!114 &5962441081963884955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443308743185626778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7dc63a70418584b9a6bb0715c516db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroy: 1
 --- !u!1 &5050784957391477913
 GameObject:
   m_ObjectHideFlags: 0

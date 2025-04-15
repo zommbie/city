@@ -2,18 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasScaler))]
 [RequireComponent(typeof(EventSystem))]
-[RequireComponent(typeof(StandaloneInputModule))]
+
 public abstract class CManagerUIFrameBase : CManagerTemplateBase<CManagerUIFrameBase>
 { 
 	private Canvas					m_pRootCanvas = null; 
 	private CanvasScaler			m_pRootCanvasScaler = null;
 	private EventSystem				m_pEventSystem = null;
-	private StandaloneInputModule	m_pStandAloneInputModule = null;
     private Vector3 m_vecRootCanverPosition = Vector3.zero;
 	private Vector2 m_vecScreenSize = Vector3.zero;							public Vector2 GetUIScreenSize() { return m_vecScreenSize; }
 	private bool m_bInitialize = false;										public bool IsInitialize { get { return m_bInitialize; } }
@@ -153,8 +152,7 @@ public abstract class CManagerUIFrameBase : CManagerTemplateBase<CManagerUIFrame
 	{
 		m_pRootCanvas = GetComponent<Canvas>();
 		m_pRootCanvasScaler = GetComponent<CanvasScaler>();
-		m_pEventSystem = GetComponent<EventSystem>();
-		m_pStandAloneInputModule = GetComponent<StandaloneInputModule>();
+		m_pEventSystem = GetComponent<EventSystem>();	
         m_fPixelPerUnit = m_pRootCanvasScaler.referencePixelsPerUnit;
 	}
 
