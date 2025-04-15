@@ -58,7 +58,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleSoundBGM/*.*
+  - path: Assets/01.AssetBundle/05.BundleSoundBGM/*.*
     matchType: 0
     groupName: ZCBundleSoundBGM
     LabelMode: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleScriptData/*.*
+  - path: Assets/01.AssetBundle/06.BundleScriptData/*.*
     matchType: 0
     groupName: ZCBundleScriptData
     LabelMode: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleVisualEffect/*.*
+  - path: Assets/01.AssetBundle/07.BundleVisualEffect/*.*
     matchType: 0
     groupName: ZCBundleVisualEffect
     LabelMode: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleRawImage/*.*
+  - path: Assets/01.AssetBundle/08.BundleRawImage/*.*
     matchType: 0
     groupName: ZCBundleRawImage
     LabelMode: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleActor/*.*
+  - path: Assets/01.AssetBundle/09.BundleActor/*.*
     matchType: 0
     groupName: ZCBundleActor
     LabelMode: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/04.BundleStage/*.*
+  - path: Assets/01.AssetBundle/10.BundleStage/*.*
     matchType: 0
     groupName: ZCBundleStage
     LabelMode: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
-  - path: Assets/01.AssetBundle/49.BundleDLCMain/*.*
+  - path: Assets/01.AssetBundle/50.BundleDLCMain/*.*
     matchType: 0
     groupName: ZCBundleDLCMain
     LabelMode: 0

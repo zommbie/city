@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2926366686982673192}
   - component: {fileID: 3770061160736014440}
   m_Layer: 0
-  m_Name: ZCPrefabDLCManager
+  m_Name: ZCPrefabDLCMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

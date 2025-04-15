@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ZCManagerStageBattle : CManagerStageBaseOld
+public class ZCManagerStageBattle : CManagerStageBase
 {
 
 
