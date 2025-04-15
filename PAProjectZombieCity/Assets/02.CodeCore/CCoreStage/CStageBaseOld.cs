@@ -3,7 +3,7 @@ using UnityEngine;
 // 스테이지는 스크립트 데이터 로딩 관련 로직과 게임 스타트 및 엔드 로직을 관리한다.
 // 스테이지는 반복 수행(Reset)이 가능해야 하며 한 장면에 복수의 스테이지가 존재할 수 있다. 
 
-abstract public class CStageBase : CMonoBase
+abstract public class CStageBaseOld : CMonoBase
 {
 	public enum EStageStatus
     {
@@ -20,18 +20,18 @@ abstract public class CStageBase : CMonoBase
 	protected override void OnUnityAwake()
 	{
 		base.OnUnityAwake();
-		if (CManagerStageBase.Instance != null)
+		if (CManagerStageBaseOld.Instance != null)
 		{
-			CManagerStageBase.Instance.InterStageRegist(this);
+			CManagerStageBaseOld.Instance.InterStageRegist(this);
 		}     
     }
 
 	protected override sealed void OnUnityDestroy()
 	{
 		base.OnUnityDestroy();
-		if (CManagerStageBase.Instance != null)
+		if (CManagerStageBaseOld.Instance != null)
 		{
-			CManagerStageBase.Instance.InterStageUnRegist(this);
+			CManagerStageBaseOld.Instance.InterStageUnRegist(this);
 		}    
     }
 
@@ -91,7 +91,7 @@ abstract public class CStageBase : CMonoBase
     }
 
 	//-------------------------------------------------------------------------------------
-	internal void InterStageLoad(uint hLoadID, UnityAction<CStageBase> delFinish, params object[] aParams) 
+	internal void InterStageLoad(uint hLoadID, UnityAction<CStageBaseOld> delFinish, params object[] aParams) 
 	{
 		m_hLoadID = hLoadID;
 		m_eStageStatus = EStageStatus.Loading;
@@ -102,7 +102,7 @@ abstract public class CStageBase : CMonoBase
 		}, aParams);
 	}
 
-	internal void InterStageReLoad(UnityAction<CStageBase> delFinish, params object[] aParams) // 해당 스테이지를 다시 로드 할때
+	internal void InterStageReLoad(UnityAction<CStageBaseOld> delFinish, params object[] aParams) // 해당 스테이지를 다시 로드 할때
     {
 		if (m_hLoadID == 0)
 		{

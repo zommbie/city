@@ -6,11 +6,11 @@ using UnityEngine.Events;
 // 스테이지는 독립된 게임 플레이 단위이다. AdditiveScene으로 복수의 스테이지가 하나의 씬에 병합 될 수 있다
 // 화면을 분할하여 별도의 카메라를 가진다든가 하는 다양한 실행 환경에 대응하기 위한 레이어이다.
 
-abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase>
+abstract public class CManagerStageBaseOld : CManagerTemplateBase<CManagerStageBaseOld>
 {
     private bool m_bStageStart = false; public bool IsStageStart { get { return m_bStageStart; } }
     private uint m_hStageID = 0; public uint p_StageID { get { return m_hStageID; } }
-    private List<CStageBase> m_listStageInstance = new List<CStageBase>();
+    private List<CStageBaseOld> m_listStageInstance = new List<CStageBaseOld>();
     //--------------------------------------------------------------
     protected override void OnUnityAwake()
     {
@@ -19,12 +19,12 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
     }
 
     //---------------------------------------------------------------
-    internal void InterStageRegist(CStageBase pStage)
+    internal void InterStageRegist(CStageBaseOld pStage)
     {
         PrivStageRegist(pStage);
     }
 
-    internal void InterStageUnRegist(CStageBase pStage)
+    internal void InterStageUnRegist(CStageBaseOld pStage)
     {
         PrivStageUnRegist(pStage);
     }
@@ -64,7 +64,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     protected void ProtMgrStagePauseResume(bool bPause, int iIndex = 0)
     {
-        CStageBase pStage = FindMgrStage(iIndex);
+        CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage != null)
         {
             pStage.InterStagePauseResume(bPause);
@@ -78,7 +78,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
     }
 
     //---------------------------------------------------------------
-    private void PrivStageRegist(CStageBase pStage)
+    private void PrivStageRegist(CStageBaseOld pStage)
     {
         if (m_listStageInstance.Contains(pStage) == false)
         {
@@ -88,7 +88,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         }
     }
 
-    private void PrivStageUnRegist(CStageBase pStage)
+    private void PrivStageUnRegist(CStageBaseOld pStage)
     {
         m_listStageInstance.Remove(pStage);
         pStage.InterStageUnRegister();
@@ -97,7 +97,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStageReset(int iIndex, params object[] aParams)
     {
-		CStageBase pStage = FindMgrStage(iIndex);
+		CStageBaseOld pStage = FindMgrStage(iIndex);
 		if (pStage != null)
 		{
 			pStage.InterStageReset(aParams);
@@ -107,7 +107,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStageStart(int iIndex = 0, params object[] aParams)
     {
-		CStageBase pStage = FindMgrStage(iIndex);
+		CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage.p_StageLoaded == false)
 		{
 			Debug.LogError(string.Format("[Stage] Stage Does not Loaded : {0}", aParams));
@@ -121,7 +121,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStageEnd(int iIndex)
     {
-        CStageBase pStage = FindMgrStage(iIndex);
+        CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage != null)
 		{
             pStage.InterStageEnd();
@@ -131,10 +131,10 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStageLoad(uint hLoadID, UnityAction delFinish, int iIndex, params object[] aParams)
     {
-        CStageBase pStage = FindMgrStage(iIndex);
+        CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage != null)
         {
-            pStage.InterStageLoad(hLoadID, (CStageBase pLoadedStage) => {               
+            pStage.InterStageLoad(hLoadID, (CStageBaseOld pLoadedStage) => {               
                 OnMgrStageLoaded(pLoadedStage);
                 delFinish?.Invoke();
             }, aParams);
@@ -144,10 +144,10 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStageReLoad(UnityAction delFinish, int iIndex, params object[] aParams)
     {
-        CStageBase pStage = FindMgrStage(iIndex);
+        CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage != null)
         {
-            pStage.InterStageReLoad((CStageBase pLoadedStage) =>
+            pStage.InterStageReLoad((CStageBaseOld pLoadedStage) =>
             {
                 delFinish?.Invoke();
                 OnMgrStageReLoaded(pLoadedStage);
@@ -158,7 +158,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     private void PrivStagePrepare(UnityAction delFinish, int iIndex, params object[] aParams)
     {
-        CStageBase pStage = FindMgrStage(iIndex);
+        CStageBaseOld pStage = FindMgrStage(iIndex);
         if (pStage != null)
         {
             pStage.InterStagePrepare(() => {
@@ -179,7 +179,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
     //------------------------------------------------------------------
     private void PrivStageFindGlobalStage()
     {
-        CStageBase[] aFindStage = FindObjectsByType<CStageBase>(FindObjectsSortMode.None);
+        CStageBaseOld[] aFindStage = FindObjectsByType<CStageBaseOld>(FindObjectsSortMode.None);
         for (int i = 0; i < aFindStage.Length; i++)
         {
             PrivStageRegist(aFindStage[i]);
@@ -187,9 +187,9 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
     }
 
     //-----------------------------------------------------------------
-    protected CStageBase FindMgrStage(int iIndex)
+    protected CStageBaseOld FindMgrStage(int iIndex)
     {
-        CStageBase pFindStage = null;
+        CStageBaseOld pFindStage = null;
         if (iIndex < m_listStageInstance.Count)
         {
             pFindStage = m_listStageInstance[iIndex];
@@ -198,21 +198,21 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         return pFindStage;
     }
 
-    protected List<CStageBase>.Enumerator GetMgrStageInstanceIterator()
+    protected List<CStageBaseOld>.Enumerator GetMgrStageInstanceIterator()
     {
         return m_listStageInstance.GetEnumerator();
     }
 
     //-------------------------------------------------------------------
-    protected virtual void OnMgrStageStart(CStageBase pStage) { }
-    protected virtual void OnMgrStageEnd(CStageBase pStage) { }
-    protected virtual void OnMgrStageReset(CStageBase pStage) { }
-    protected virtual void OnMgrStagePrepare(CStageBase pStage) { }   
-    protected virtual void OnMgrStagePause(CStageBase pStage) { }
-    protected virtual void OnMgrStageLoad(CStageBase pStage) { }
-    protected virtual void OnMgrStageLoaded(CStageBase pStage) { }
-    protected virtual void OnMgrStageReLoad(CStageBase pStage) { }
-    protected virtual void OnMgrStageReLoaded(CStageBase pStage) { }
-    protected virtual void OnMgrStageRegister(CStageBase pStage) { }
-    protected virtual void OnMgrStageUnRegister(CStageBase pStage) { }
+    protected virtual void OnMgrStageStart(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageEnd(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageReset(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStagePrepare(CStageBaseOld pStage) { }   
+    protected virtual void OnMgrStagePause(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageLoad(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageLoaded(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageReLoad(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageReLoaded(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageRegister(CStageBaseOld pStage) { }
+    protected virtual void OnMgrStageUnRegister(CStageBaseOld pStage) { }
 }

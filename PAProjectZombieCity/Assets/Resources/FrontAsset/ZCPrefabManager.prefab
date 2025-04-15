@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3949750370856110574}
   - component: {fileID: 5769950985567529086}
   - component: {fileID: 287803909097528629}
+  - component: {fileID: 3236490875953053831}
+  - component: {fileID: 5649433888783419515}
+  - component: {fileID: 7274175771719059955}
   m_Layer: 0
   m_Name: ZCPrefabManager
   m_TagString: Untagged
@@ -66,6 +69,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DontDestroy: 1
   MinLoadingTime: 1
+--- !u!114 &3236490875953053831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555570686709227446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9969b2d26f8e8d24e9fa209a268a957b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroy: 1
+--- !u!114 &5649433888783419515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555570686709227446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9bafe320dfce84386eb08993dc66cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroy: 1
+--- !u!114 &7274175771719059955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555570686709227446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7503b771f4010a46904e470e7707927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroy: 1
 --- !u!1 &1844095722695322813
 GameObject:
   m_ObjectHideFlags: 0
