@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections.Generic;
 public abstract class CStageBase : CMonoBase
 {
     public enum EStageStatus
@@ -12,10 +12,18 @@ public abstract class CStageBase : CMonoBase
         End,            // 스테이지가 끝난 상태이다. Reset등으로 재시작이 가능하다.
     }
 
+    [SerializeField]
+    private CStageCameraBase StageCamera;
 
     private uint m_hStageID = 0;   public uint GetStageID() { return m_hStageID; }
     private EStageStatus m_eStageStatus = EStageStatus.None;
     //--------------------------------------------------------------------
+    internal void InterStageInitialize()
+    {
+        StageCamera?.InterStageCameraInitialize();
+        OnStageInitialize();
+    }
+
     internal void InterStageLoad(uint hStageID, UnityAction delFinish, params object [] aParams)
     {
         if (m_eStageStatus == EStageStatus.None)
@@ -72,14 +80,13 @@ public abstract class CStageBase : CMonoBase
         }
     }
 
-    internal void InterStageExit()  // 해당 스테이지를 종료하고 언로드 하기 직전
+    internal void InterStageExit()  // 해당 스테이지를 종료하고 언로드 하기 직전 호출
     {
         OnStageExit();
     }
 
-
-
     //----------------------------------------------------------------------
+    protected virtual void OnStageInitialize() { }
     protected virtual void OnStageLoad(uint hStageID, UnityAction delFinish, params object[] aParams) { }
     protected virtual void OnStageStart(int iOption) { }
     protected virtual void OnStageEnd(int iResult) { }

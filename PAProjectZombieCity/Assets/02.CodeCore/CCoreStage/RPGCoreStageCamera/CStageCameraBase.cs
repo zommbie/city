@@ -6,48 +6,14 @@ using UnityEngine;
 abstract public class CStageCameraBase : CMonoBase
 {
 	[SerializeField]
-	private bool Exclusive = true;   public bool GetStageCameraExclusive() { return Exclusive; } // 독점 카메라로 활성화 되면 다른 카메라는 꺼진다.
+	private bool Exclusive = true;   public bool IsStageCameraExclusive() { return Exclusive; } // 독점 카메라로 활성화 되면 다른 카메라는 꺼진다.
 	[SerializeField]
 	private bool StartShow = true;
 
     protected Camera m_pCamera = null;	
 	private UniversalAdditionalCameraData m_pURPCameraData = null;
     private bool m_bInitialize = false;
-	private int m_iCameraCullingMask = 0;
-	//------------------------------------------------------------------
-	protected override void OnUnityAwake()
-	{
-		base.OnUnityAwake();
-        InterStageCameraInitialize();
-        PrivStageCameraRegist();
-	}
-
-    protected override void OnUnityStart()
-    {
-        base.OnUnityStart();		
-	}
-
-    private void Update()
-	{
-		OnUnityUpdate(Time.deltaTime);
-	}
-
-	private void LateUpdate()
-	{
-		OnUnityLateUpdate();
-	}
-
-    private void FixedUpdate()
-    {
-        OnUnityFixedUpdate(Time.fixedDeltaTime);
-    }
-
-    protected override void OnUnityDestroy()
-	{
-		base.OnUnityDestroy();
-		PrivStageCameraUnRegist();
-	}
-
+	private int m_iCameraCullingMask = 0;		
 	//--------------------------------------------------------------------
     internal void InterStageCameraInitialize()
     {
@@ -57,7 +23,8 @@ abstract public class CStageCameraBase : CMonoBase
         m_pCamera = GetComponent<Camera>();
         m_iCameraCullingMask = m_pCamera.cullingMask;
         m_pURPCameraData = GetComponent<UniversalAdditionalCameraData>();
-		
+        PrivStageCameraMountUICamera();
+
         OnStageCameraInitialize();
     }
 
@@ -86,40 +53,45 @@ abstract public class CStageCameraBase : CMonoBase
 		OnStageCameraCullingMaskEnable();
 	}
 
-    internal void InterStageCameraRemove()
-    {
-        OnStageCameraRemove();
-    }
-
     internal void InterStageCameraUISceneLoaded()
     {
         OnStageCameraUISceneLoaded();
     }
 
 	//----------------------------------------------------------------
-	internal void InterStageCameraOverlayStack(Camera pOverlayCamera)
+	private void PrivStageCameraMountUICamera()
 	{
-        if (pOverlayCamera == null) return;
-
-		if (m_pURPCameraData.cameraStack.Contains(pOverlayCamera) == true) return;
-
-		List<Camera> StackCameraList = new List<Camera>();
-		StackCameraList.Add(pOverlayCamera);
-
-		for (int i = 0; i < m_pURPCameraData.cameraStack.Count; i++)
-		{
-			StackCameraList.Add(m_pURPCameraData.cameraStack[i]);
-		}
-
-		m_pURPCameraData.cameraStack.Clear();
-
-		for (int i = 0; i < StackCameraList.Count; i++)
-		{
-			m_pURPCameraData.cameraStack.Add(StackCameraList[i]);
-		}
-		CManagerUIFrameBase.Instance?.SetUICameraEnable(true);
-		OnStageCameraOverlayStack(pOverlayCamera);
+        if (StartShow)
+        {
+            Camera pUICamera = CManagerUIFrameBase.Instance.GetUIManagerCamara();
+            if (pUICamera != null)
+            {
+                PrivStageCameraOverlayCamera(pUICamera);
+            }
+        }		
     }
+
+    private void PrivStageCameraOverlayCamera(Camera pOverlayCamera)
+    {
+        if (m_pURPCameraData.cameraStack.Contains(pOverlayCamera) == true) return;
+
+        List<Camera> StackCameraList = new List<Camera>();
+        StackCameraList.Add(pOverlayCamera);
+
+        for (int i = 0; i < m_pURPCameraData.cameraStack.Count; i++)
+        {
+            StackCameraList.Add(m_pURPCameraData.cameraStack[i]);
+        }
+
+        m_pURPCameraData.cameraStack.Clear();
+
+        for (int i = 0; i < StackCameraList.Count; i++)
+        {
+            m_pURPCameraData.cameraStack.Add(StackCameraList[i]);
+        }
+        OnStageCameraOverlayStack(pOverlayCamera);
+    }
+
     //------------------------------------------------------------------
     public Camera GetCamera()
     {
@@ -134,33 +106,7 @@ abstract public class CStageCameraBase : CMonoBase
     {
         return GetCamera().GetInstanceID(); 
     }
-
-    //--------------------------------------------------------------------
-    protected void ProtStageCameraActivate()
-    {
-        CManagerStageCameraBase.Instance.InterStageCameraActivate(this);
-    }
-
-	//---------------------------------------------------------------------
-	private void PrivStageCameraRegist()
-	{      
-		if (CManagerStageCameraBase.Instance != null)
-		{
-			CManagerStageCameraBase.Instance.InterStageCameraRegist(this, true);
-			if (StartShow)
-			{
-				CManagerStageCameraBase.Instance.InterStageCameraActivate(this);
-			}
-			OnStageCameraRegist();
-		}
-	}
-
-	private void PrivStageCameraUnRegist()
-	{
-		CManagerStageCameraBase.Instance?.InterStageCameraRegist(this, false);
-		CManagerUIFrameBase.Instance?.SetUICameraEnable(false);
-		OnStageCameraUnRegist();
-	}
+	
     //-----------------------------------------------------------------------
 	protected virtual void OnUnityUpdate(float fDeltaTime) { }
 	protected virtual void OnUnityLateUpdate() { }
@@ -168,9 +114,7 @@ abstract public class CStageCameraBase : CMonoBase
    
 	protected virtual void OnStageCameraHide() { }
 	protected virtual void OnStageCameraShow() { }
-	protected virtual void OnStageCameraOverlayStack(Camera pOverlayCamera) { }
-	protected virtual void OnStageCameraRegist() { }
-	protected virtual void OnStageCameraUnRegist() { }
+	protected virtual void OnStageCameraOverlayStack(Camera pOverlayCamera) { }	
 	protected virtual void OnStageCameraCullingMaskEnable() { }
 	protected virtual void OnStageCameraCullingMaskDisable() { }
     protected virtual void OnStageCameraRemove() { }

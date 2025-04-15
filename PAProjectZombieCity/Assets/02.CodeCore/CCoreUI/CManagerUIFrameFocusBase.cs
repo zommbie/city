@@ -200,7 +200,7 @@ public abstract class CManagerUIFrameFocusBase : CManagerUIFrameBase
 
 		m_pFullScreenUIFrame.InterUIFrameShow(ExtractUIOrderFullScreenPanel());
 
-		CManagerStageCameraBase.Instance?.DoStageCameraRenderEnableAll(false);
+		CManagerStageCameraBaseOld.Instance?.DoStageCameraRenderEnableAll(false);
 
 		OnMgrUIFrameShow(pUIFrame);
 	}
@@ -255,7 +255,7 @@ public abstract class CManagerUIFrameFocusBase : CManagerUIFrameBase
 
 			pUIFrame.InterUIFrameHide();
 			m_pFullScreenUIFrame = null;
-			CManagerStageCameraBase.Instance?.DoStageCameraRenderEnableAll(true);
+			CManagerStageCameraBaseOld.Instance?.DoStageCameraRenderEnableAll(true);
 			OnMgrUIFrameHide(pUIFrame);
 		}
 	}

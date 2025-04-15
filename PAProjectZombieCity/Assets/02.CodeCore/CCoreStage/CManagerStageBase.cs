@@ -4,17 +4,37 @@ using UnityEngine.Events;
 public abstract class CManagerStageBase : CManagerTemplateBase<CManagerStageBase>
 {
     private List<CStageBase> m_listStageInstance = new List<CStageBase>();
-    //------------------------------------------------------------
-    protected override void OnUnityAwake()
+    //--------------------------------------------------------------
+    protected override void OnManagerUISceneLoaded()
     {
-        base.OnUnityAwake();
         PrivMgrStageInstance();
     }
 
     //--------------------------------------------------------------
-    protected void ProtMgrStageLoad(uint hStageID, UnityAction delFinish, params object [] aParams)
+    public void DoMgrStageLoad(uint hStageID, UnityAction delFinish, params object [] aParams)
     {
         PrivMgrStageLoad(hStageID, delFinish, aParams);
+        OnMgrStageLoad(hStageID, delFinish, aParams);
+    }
+
+    public void DoMgrStageStart(int iOption = 0)
+    {
+
+    }
+
+    public void DoMgrStageEnd(int iResult = 0)
+    {
+
+    }
+
+    public void DoMgrStageReset(int iOption = 0)
+    {
+
+    }
+
+    public void DoMgrStageExit()
+    {
+
     }
 
     //-------------------------------------------------------------
@@ -23,6 +43,10 @@ public abstract class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         if (m_listStageInstance.Count == 0)
         {
             GetComponentsInChildren(true, m_listStageInstance);
+            for (int i = 0; i < m_listStageInstance.Count; i++)
+            {
+                m_listStageInstance[i].InterStageInitialize();
+            }
         }
     }
 
@@ -34,12 +58,23 @@ public abstract class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         int iComplete = 0;
         for (int i = 0; i < m_listStageInstance.Count; i++)
         {
-//            m_listStageInstance[i]
+            m_listStageInstance[i].InterStageLoad(hStageID, () => {
+                iComplete++;
+                if (iComplete == m_listStageInstance.Count)
+                {
+                    delFinish?.Invoke();
+                }
+            }, aParams);
         }
     }
 
 
-
+    //------------------------------------------------------------
+    protected virtual void OnMgrStageLoad(uint hStageID, UnityAction delFinish, params object[] aParams) { }
+    protected virtual void OnMgrStageStart(int iOption) { }
+    protected virtual void OnMgrStageEnd(int iResult) { }
+    protected virtual void OnMgrStageReset(int iOption) { }
+    protected virtual void OnMgrStageExit() { }
     //-------------------------------------------------------------
     public CManagerStageBase() : base(false) { }
 }

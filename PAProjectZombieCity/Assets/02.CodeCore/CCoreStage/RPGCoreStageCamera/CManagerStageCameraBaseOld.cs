@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine;
 
-abstract public class CManagerStageCameraBase : CManagerTemplateBase<CManagerStageCameraBase>
+abstract public class CManagerStageCameraBaseOld : CManagerTemplateBase<CManagerStageCameraBaseOld>
 {
 	private Dictionary<int, CStageCameraBase> m_mapCameraInstance = new Dictionary<int, CStageCameraBase>();
 	private List<CStageCameraBase> m_listActiveCamera = new List<CStageCameraBase>();             
@@ -77,22 +77,22 @@ abstract public class CManagerStageCameraBase : CManagerTemplateBase<CManagerSta
         return m_pUICamera;
 	}
 
-	private void PrivStageCameraRegist(CStageCameraBase pStageCamera)
-	{
-		int CameraID = pStageCamera.GetCameraID();
+    private void PrivStageCameraRegist(CStageCameraBase pStageCamera)
+    {
+        int CameraID = pStageCamera.GetCameraID();
         if (m_mapCameraInstance.ContainsKey(CameraID) == false)
         {
-			pStageCamera.InterStageCameraInitialize();
-			m_mapCameraInstance[CameraID] = pStageCamera;
+            pStageCamera.InterStageCameraInitialize();
+            m_mapCameraInstance[CameraID] = pStageCamera;
         }
     }
 
-	private void PrivStageCameraUnRegist(CStageCameraBase pCamera)
-	{
+    private void PrivStageCameraUnRegist(CStageCameraBase pCamera)
+    {
         int CameraID = pCamera.GetCameraID();
         if (m_mapCameraInstance.ContainsKey(CameraID))
         {
-            pCamera.InterStageCameraRemove();
+     //       pCamera.InterStageCameraRemove();
             m_listActiveCamera.Remove(pCamera);
             m_mapCameraInstance.Remove(CameraID);
         }
@@ -146,13 +146,13 @@ abstract public class CManagerStageCameraBase : CManagerTemplateBase<CManagerSta
         Camera pUICamera = FindStageUICamera();
         if (pUICamera != null)
 		{
-            pStageCameraShow.InterStageCameraOverlayStack(pUICamera);
+     //       pStageCameraShow.InterStageCameraOverlayStack(pUICamera);
 		}
 	}
 
     private void PrivStageCameraExclusive(CStageCameraBase pStageCamera)
 	{
-		bool bExclusive = pStageCamera.GetStageCameraExclusive();
+		bool bExclusive = pStageCamera.IsStageCameraExclusive();
 		if (bExclusive)
 		{
 			PrivStageCameraHide(pStageCamera);
