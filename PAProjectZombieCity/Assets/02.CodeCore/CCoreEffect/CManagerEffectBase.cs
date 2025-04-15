@@ -291,5 +291,5 @@ public abstract class CManagerEffectBase : CManagerTemplateBase<CManagerEffectBa
     }
 
     //----------------------------------------------------------------
-    protected virtual void OnMgrEffectPreLoadWork(UnityAction delFinish) { }
+    protected virtual void OnMgrEffectPreLoadWork(UnityAction delFinish) { delFinish?.Invoke(); }
 }

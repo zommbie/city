@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JunTween", "JunTween.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{1B4CE827-0B1A-A71E-B7FF-8BF08B66C6B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSCodeContentsEditor", "SSCodeContentsEditor.csproj", "{A46F44BA-6CD4-0E4F-9590-4FDC50A71177}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{56AB91A8-9042-562B-D84B-A1F140A76FF8}"
 EndProject
 Global
@@ -81,6 +83,10 @@ Global
 		{1B4CE827-0B1A-A71E-B7FF-8BF08B66C6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B4CE827-0B1A-A71E-B7FF-8BF08B66C6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B4CE827-0B1A-A71E-B7FF-8BF08B66C6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46F44BA-6CD4-0E4F-9590-4FDC50A71177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46F44BA-6CD4-0E4F-9590-4FDC50A71177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46F44BA-6CD4-0E4F-9590-4FDC50A71177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46F44BA-6CD4-0E4F-9590-4FDC50A71177}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56AB91A8-9042-562B-D84B-A1F140A76FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56AB91A8-9042-562B-D84B-A1F140A76FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56AB91A8-9042-562B-D84B-A1F140A76FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU

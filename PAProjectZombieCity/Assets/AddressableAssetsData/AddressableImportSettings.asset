@@ -13,4 +13,136 @@ MonoBehaviour:
   m_Name: AddressableImportSettings
   m_EditorClassIdentifier: 
   allowGroupCreation: 1
-  rules: []
+  rules:
+  - path: Assets/01.AssetBundle/01.BundleUIFrame/*.*
+    matchType: 0
+    groupName: ZCBundleUIFrame
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/02.BundleUIAtlas/*.*
+    matchType: 0
+    groupName: ZCBundleUIAtlas
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/03.BundleScene/*.*
+    matchType: 0
+    groupName: ZCBundleScene
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleSoundEffect/*.*
+    matchType: 0
+    groupName: ZCBundleSoundEffect
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleSoundBGM/*.*
+    matchType: 0
+    groupName: ZCBundleSoundBGM
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleScriptData/*.*
+    matchType: 0
+    groupName: ZCBundleScriptData
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleVisualEffect/*.*
+    matchType: 0
+    groupName: ZCBundleVisualEffect
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleRawImage/*.*
+    matchType: 0
+    groupName: ZCBundleRawImage
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleActor/*.*
+    matchType: 0
+    groupName: ZCBundleActor
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/04.BundleStage/*.*
+    matchType: 0
+    groupName: ZCBundleStage
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/49.BundleLocalize/*.*
+    matchType: 0
+    groupName: ZCBundleLocalize
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
+  - path: Assets/01.AssetBundle/49.BundleDLCMain/*.*
+    matchType: 0
+    groupName: ZCBundleDLCMain
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: e30e93db93b1c3242929697e26f0002c, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 

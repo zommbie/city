@@ -13,5 +13,13 @@ public abstract class ZCSceneAttacherBase : CSceneAttacherBase
     protected const string c_UIRootScenePrefabName  = "UISystemRoot";
 
     //-----------------------------------------------------------------------------------------------
-
+    protected void ProtSceneAttacherBasicLoad(UnityAction delFinish)
+    {
+        ProtSceneAttacherLoadResourcePrefab(c_ManagerPrefabPath, c_ManagerPrefabName, () => { 
+            
+        
+        
+        
+        });
+    }
 }

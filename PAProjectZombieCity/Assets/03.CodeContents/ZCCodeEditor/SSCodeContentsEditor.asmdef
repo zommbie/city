@@ -1,0 +1,20 @@
+{
+    "name": "SSCodeContentsEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e3d7b592eb15c664bb99d800f8750f99",
+        "GUID:d9cec9b0a06fd1e428a05f2ff5d39d88",
+        "GUID:457ee40f3a1fa0c4fb1589f4a0ef3561"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
