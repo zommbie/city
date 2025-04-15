@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc11c9d63e07339419026ca9606bca6e
+    m_Address: ZCSceneMaster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 54ef536a7ac4f6744b1c7fa05ba87bd1, type: 2}
   m_SchemaSet:

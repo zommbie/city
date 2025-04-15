@@ -38,9 +38,6 @@ public abstract class ZCSceneAttacherBase : CSceneAttacherBase
                     PrivSceneAttacherLoadUISceneAndNetwork(delFinish);
                 }
             });
-
-
-
         });
     }
 
