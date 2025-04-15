@@ -53,7 +53,7 @@ MonoBehaviour:
   DontDestroy: 1
   TargetFrameRate: 60
   ShowFPS: 1
-  ScreenSize: {x: 720, y: 1280}
+  ScreenSize: {x: 1080, y: 1920}
   BuildLanguage: 0
 --- !u!114 &287803909097528629
 MonoBehaviour:
