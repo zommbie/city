@@ -4,5 +4,10 @@ public class ZCManagerStageBattle : CManagerStageBase
 {
 
 
- 
+
+
+
+
+    //------------------------------------------------------------------------
+
 }
