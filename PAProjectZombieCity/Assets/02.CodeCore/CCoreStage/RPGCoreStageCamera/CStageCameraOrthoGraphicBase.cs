@@ -8,11 +8,9 @@ public abstract class CStageCameraOrthoGraphicBase : CStageCameraBase
     [SerializeField]
     private bool ScreenAutoFit = true;              
 
-    private const float c_OrthoScreenWidth = 1920f;  // 기본 가로 화면비 (16 : 9)
-    private const float c_OrthoScreenHeight = 1080f;
-    private const float c_OrthoScreenRate = 6.4f;     // 1280 기준 6.4는 하프 사이즈
-    private const float c_OrthoScreenBaseRate = 1.77777777f;  // 가로 세로 비율
-   
+    private const float c_OrthoStandardWidth = 1080f;  // 기본 가로 화면비 (16 : 9)
+    private const float c_OrthoStandardHeight = 1920f;   
+      
     private float m_fOrthoGrpicSize = 0;
     private bool  m_bScreenFit = false;             public bool IsScreenFit { get { return m_bScreenFit; }}
     //----------------------------------------------------------------
@@ -41,11 +39,11 @@ public abstract class CStageCameraOrthoGraphicBase : CStageCameraBase
     {
         m_bScreenFit = true;
         // 높이 사이즈에 맞춰 직교 백터 조정 
-        float fScreenWidthRate = fHeight / c_OrthoScreenWidth;
-        float fScreenHeightRate = fWidth / c_OrthoScreenHeight;
-
-        float fScreenRate = (fScreenWidthRate / fScreenHeightRate);
-        m_fOrthoGrpicSize = fScreenRate * c_OrthoScreenRate;
+        float fScreenHeightRate = fHeight / c_OrthoStandardHeight;
+        float fScreenWidthRate = fWidth / c_OrthoStandardWidth;
+        float fStandardOrthoSize = c_OrthoStandardHeight / 100f / 2f; // 100 = unit per pixel
+        float fScreenRate = fScreenHeightRate / fScreenWidthRate;
+        m_fOrthoGrpicSize = fScreenRate * fStandardOrthoSize;
         m_pCamera.orthographicSize = m_fOrthoGrpicSize;
 
         OnCamera2DSideAdjustSize(m_fOrthoGrpicSize, Vector3.zero);
@@ -56,7 +54,8 @@ public abstract class CStageCameraOrthoGraphicBase : CStageCameraBase
     {
         bool bWideScreen = false;
         float fScreenRate = (float)Screen.height / Screen.width;
-        if (fScreenRate < c_OrthoScreenBaseRate)
+        float fScreenHeightRate = c_OrthoStandardHeight / c_OrthoStandardWidth;
+        if (fScreenRate < fScreenHeightRate)
         {
             bWideScreen = true;
         }
