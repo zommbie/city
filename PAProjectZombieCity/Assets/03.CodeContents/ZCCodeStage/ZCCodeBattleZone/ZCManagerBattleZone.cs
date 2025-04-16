@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ZCManagerBattleZone : CManagerTemplateBase<ZCManagerBattleZone>
 {
-
+    [SerializeField]
+    private Transform BattleBackArtRoot;
     //--------------------------------------------------------------------------
 
 

@@ -19,7 +19,7 @@ public abstract class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 
     public void DoMgrStageStart(int iOption = 0)
     {
-
+        OnMgrStageStart(iOption);
     }
 
     public void DoMgrStageEnd(int iResult = 0)
